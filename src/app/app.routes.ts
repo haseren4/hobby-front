@@ -7,7 +7,7 @@ import {JewelryMainComponent} from "./jewelry-components/jewelry-main/jewelry-ma
 import {WargamingMainComponent} from "./wargaming-components/wargaming-main/wargaming-main.component";
 
 export const routes: Routes = [
-  {path: "" , component:RadioMainComponent},
+  {path: "" , component:HomeComponent},
   {path: "contact", component:ContactComponent},
   {path: "jewelry", component:JewelryMainComponent},
   {path: "wargaming",component:WargamingMainComponent},

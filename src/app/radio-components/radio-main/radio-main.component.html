@@ -7,21 +7,21 @@
     <table class="table text-center md-4 bg-dark text-light">
       <caption class="caption-top"><h3 class="text-center text-light">Ground Mobile Radio Service (GMRS)</h3></caption>
       <tr><th>Callsign: </th> <td>WSCL557</td></tr>
-      <tr><th>Current Contacts: </th> <td>0</td></tr>
+      <tr><th>Current Contacts: </th> <td>{{ contactStats?.totalGMRSContacts }}</td></tr>
     </table>
   </div>
   <div class="col-6"><h2></h2>
     <table class="table text-center md-4 bg-dark text-light">
       <caption class="caption-top"><h3 class="text-center text-light">Amateur Radio (HAM)</h3></caption>
-      <tr><th>Callsign: </th> <td>Studying for Tech License</td></tr>
-      <tr><th>Current Contacts: </th> <td>^^^^</td></tr>
+      <tr><th>Callsign: </th> <td>KQ4RWT</td></tr>
+      <tr><th>Current Contacts: </th> <td>{{contactStats?.totalAmateurContacts}}</td></tr>
     </table>
   </div>
 </div>
   <div class="col">
     <h2 class="text-center">Current Equipment</h2>
     <div class="row">
-      <div class="col-4">
+      <div class="col-md-4">
         <h3 class="text-center">Base Station</h3>
         <div class="row">
           <!--<div class="card col-6">                                                                                              &lt;!&ndash; Card for Each Radio&ndash;&gt;
@@ -30,38 +30,52 @@
           </div>-->
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-md-4">
         <h3 class="text-center">Mobile Station</h3>
         <div class="row">
-          <!--<div class="card col-6">                                                                                              &lt;!&ndash; Card for Each Radio&ndash;&gt;
-            <h5 class="card-title">BaoFeng UT-F8TD</h5>
-            <img class="card-body"width="150px" src="https://baofengtech.com/wp-content/uploads/2020/08/bf-f8hp-600x600.jpg">
-          </div>-->
-        </div>
-      </div>
-      <div class="col-4">
-        <h3 class="text-center">Handhelds</h3>
-        <div class="row text-center">
-          <div class="card col-12 bg-darkgrey text-black">                                                                                              <!-- Card for Each Radio-->
-            <h4 class="card-title">BaoFeng UT-F8TD</h4>
+          <div *ngFor=" let r of mobileRadios" class="card col-12 bg-darkgrey text-center text-black">                                                                                              <!-- Card for Each Radio-->
+            <h4 class="card-title">{{ r.manufacturer }} {{r.model}}</h4>
             <div class="card-body">
-              <img  width="150px" src="https://baofengtech.com/wp-content/uploads/2020/08/bf-f8hp-600x600.jpg">
+              <img  width="150px" src="{{r.imgURL}}">
               <p class="small">
-                Bands: VHF/UHF <br />
-                Max Power: 8W <br />
+                Bands: {{ r.bands }} <br />
+                Max Power: {{ r.maxPwr }}W <br />
               </p>
             </div>
+            <div class="card-footer">
+              <a class="small text-center" [href]="r.linkURL">More Info</a>
+            </div>
 
-            <p class="card-footer">Contacts: 0</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3 class="text-center">Handhelds</h3>
+        <div class="row text-center">
+          <div *ngFor=" let r of htRadios" class="card col-12 bg-darkgrey text-center text-black">                                                                                              <!-- Card for Each Radio-->
+            <h4 class="card-title text-center">{{ r.manufacturer }} {{r.model}}</h4>
+            <div class="card-body">
+              <img  width="150px" src="{{r.imgURL}}">
+              <p class="small">
+                Bands: {{ r.bands }} <br />
+                Max Power: {{ r.maxPwr }}W <br />
+              </p>
+            </div>
+            <div class="card-footer">
+              <a class="small text-center" [href]="r.linkURL">More Info</a>
+            </div>
+
           </div>
         </div>
       </div>
 
     </div>
 
-    <app-radio-contacts />
-
   </div>
 
 </div>
+<app-radio-contacts/>
+
+<app-radio-band-priv/>
+
 <app-radio-prop-banner />
