@@ -22,7 +22,7 @@ export class RadioMainComponent implements OnInit {
   mobileRadios : Radio[] |undefined;
   contactStats : ContactStatsResponse | undefined;
 
-  baseApiURL = "http://localhost:8080/api/";
+  baseApiURL = "http://hobby.walkinsilver.com:8080/api/";
 
   constructor(private httpClient: HttpClient) { }
 
