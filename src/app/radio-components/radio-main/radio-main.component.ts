@@ -4,6 +4,8 @@ import {NgForOf} from "@angular/common";
 import {RadioPropBannerComponent} from "../radio-prop-banner/radio-prop-banner.component";
 import {RadioBandPrivComponent} from "../radio-band-priv/radio-band-priv.component";
 import {RadioContactsComponent} from "../radio-contacts/radio-contacts.component";
+import {RadioPropMufComponent} from "../radio-prop-muf/radio-prop-muf.component";
+import {RadioPotaComponent} from "../radio-pota/radio-pota.component";
 
 @Component({
   selector: 'app-radio-main',
@@ -13,7 +15,9 @@ import {RadioContactsComponent} from "../radio-contacts/radio-contacts.component
     NgForOf,
     RadioPropBannerComponent,
     RadioBandPrivComponent,
-    RadioContactsComponent
+    RadioContactsComponent,
+    RadioPropMufComponent,
+    RadioPotaComponent
   ],
   styleUrls: ['./radio-main.component.css']
 })
