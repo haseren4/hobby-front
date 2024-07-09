@@ -22,8 +22,11 @@ import {RadioPotaComponent} from "../radio-pota/radio-pota.component";
   styleUrls: ['./radio-main.component.css']
 })
 export class RadioMainComponent implements OnInit {
+
   htRadios: Radio[] | undefined;
   mobileRadios : Radio[] |undefined;
+  baseRadios : Radio[] | undefined;
+
   contactStats : ContactStatsResponse | undefined;
 
   baseApiURL = "http://hobby.walkinsilver.com:8080/api/";
@@ -45,12 +48,18 @@ export class RadioMainComponent implements OnInit {
 //      console.log(this.mobileRadios);
     });
 
+    this.getBaseRadios().subscribe(data =>{
+      this.baseRadios = data;
+    })
+
   }
 
   public getHTRadios() {
     return this.httpClient.get<Radio[]>(this.baseApiURL + "radio/HT");
   }
-
+  public getBaseRadios(){
+    return this.httpClient.get<Radio[]>(this.baseApiURL + "radio/Base");
+  }
   public getMobileRadios() {
     return this.httpClient.get<Radio[]>(this.baseApiURL + "radio/Mobile");
   }

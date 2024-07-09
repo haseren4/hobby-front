@@ -24,10 +24,20 @@
       <div class="col-md-4">
         <h3 class="text-center">Base Station</h3>
         <div class="row">
-          <!--<div class="card col-6">                                                                                              &lt;!&ndash; Card for Each Radio&ndash;&gt;
-            <h5 class="card-title">BaoFeng UT-F8TD</h5>
-            <img class="card-body"width="150px" src="https://baofengtech.com/wp-content/uploads/2020/08/bf-f8hp-600x600.jpg">
-          </div>-->
+          <div *ngFor=" let r of baseRadios" class="card col-12 bg-darkgrey text-center text-black">                                                                                              <!-- Card for Each Radio-->
+            <h4 class="card-title">{{ r.manufacturer }} {{r.model}}</h4>
+            <div class="card-body">
+              <img  width="150px" src="{{r.imgURL}}">
+              <p class="small">
+                Bands: {{ r.bands }} <br />
+                Max Power: {{ r.maxPwr }}W <br />
+              </p>
+            </div>
+            <div class="card-footer">
+              <a class="small text-center" [href]="r.linkURL">More Info</a>
+            </div>
+
+          </div>
         </div>
       </div>
       <div class="col-md-4">
